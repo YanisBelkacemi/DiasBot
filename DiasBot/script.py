@@ -69,29 +69,23 @@ class InstaScript:
         browser.implicitly_wait(5)
         #Clicking "Not Now" in pop up just after login
         sleep(2.5)
-        not_now_button = browser.find_element(By.XPATH,"//button[text()='Plus tard']")
-        not_now_button.click()
+        
+        #sleep(2)
+
+
+
+        #not_now_notif = browser.find_element(By.XPATH,"//button[text()='Plus tard']")
+        #not_now_notif.click()
+
+            #click search bar
+        browser.find_element(By.PARTIAL_LINK_TEXT,"Recherche").click()
+            #enter victim's username and clicking Search
+        browser.find_element(By.XPATH,"//input[@placeholder='Rechercher']").send_keys(self.victim_username)
+        sleep(1)
+        #open victim's profile
+        browser.find_element(By.XPATH,"//a[@href='/"+self.victim_username+"/']").click()
         sleep(2)
 
-
-
-        not_now_notif = browser.find_element(By.XPATH,"//button[text()='Plus tard']")
-        not_now_notif.click()
-        try:
-            #click search bar
-            browser.find_element(By.PARTIAL_LINK_TEXT,"Découvrir").click()
-            #enter victim's username and clicking Search
-            browser.find_element(By.XPATH,"//input[@placeholder='Rechercher']").send_keys(self.victim_username)
-            sleep(1)
-            #open victim's profile
-            browser.find_element(By.XPATH,"//div[text()='"+self.victim_username+"']").click()
-            sleep(2)
-        except:
-            browser.find_element(By.XPATH,"//input[@placeholder='Rechercher']").send_keys(self.victim_username)
-            sleep(1)
-            #open victim's profile
-            browser.find_element(By.XPATH,"//div[text()='"+self.victim_username+"']").click()
-            sleep(5)
         #-------search for username stops
 
     def spamming(self):
@@ -100,15 +94,21 @@ class InstaScript:
         sleep(5)
         #-------spamming begins
         #click message buttom
-        browser.find_element(By.XPATH,"//button[@type='button']").click()
+        browser.find_element(By.XPATH,"//div[text()='Contacter']").click()
         #input random messages 100 times
-        message_area = browser.find_element(By.XPATH,"//textarea[@placeholder='Votre message…']")
-        message_area.click()
-        message_area.send_keys(message, Keys.ENTER)
+        sleep(5)
+        not_now_button = browser.find_element(By.XPATH,"//button[text()='Plus tard']")
+        not_now_button.click()
+        sleep(5)
+        div_element = browser.find_element(By.XPATH, "//div[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx xw3qccf x1uhb9sk x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")
+        browser.execute_script("arguments[0].scrollIntoView(true);", div_element)
+        div_element.click()
+        sleep(5)
+        div_element.send_keys(message, Keys.ENTER)
         number_of_messages = 0
         for _ in range(0, self.number):
             number_of_messages += 1
-            message_area = browser.find_element(By.XPATH,"//textarea[@placeholder='Votre message…']")
+            message_area = browser.find_element(By.XPATH,"//div[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx xw3qccf x1uhb9sk x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")
             message_area.click()
             message_area.send_keys(message, Keys.ENTER)
             print(Fore.LIGHTGREEN_EX+'sended messages ----------->  '+str(number_of_messages))
