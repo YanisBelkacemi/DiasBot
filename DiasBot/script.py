@@ -100,7 +100,7 @@ class InstaScript:
         not_now_button = browser.find_element(By.XPATH,"//button[text()='Plus tard']")
         not_now_button.click()
         sleep(5)
-        div_element = browser.find_element(By.XPATH, "//div[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx xw3qccf x1uhb9sk x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")
+        div_element = browser.find_element(By.XPATH, "//div[@class='x1qjc9v5 x1yvgwvq x1dqoszc x1ixjvfu xhk4uv x1ke7ulo x3jqge x1i7howy x4y8mfe x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x178xt8z xm81vs4 xso031l xy80clv x78zum5 xdt5ytf xw7yly9 xktsk01 x1yztbdb x1d52u69']")
         browser.execute_script("arguments[0].scrollIntoView(true);", div_element)
         div_element.click()
         sleep(5)
@@ -108,7 +108,7 @@ class InstaScript:
         number_of_messages = 0
         for _ in range(0, self.number):
             number_of_messages += 1
-            message_area = browser.find_element(By.XPATH,"//div[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx xw3qccf x1uhb9sk x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")
+            message_area = browser.find_element(By.XPATH,"//div[@class='x1qjc9v5 x1yvgwvq x1dqoszc x1ixjvfu xhk4uv x1ke7ulo x3jqge x1i7howy x4y8mfe x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x178xt8z xm81vs4 xso031l xy80clv x78zum5 xdt5ytf xw7yly9 xktsk01 x1yztbdb x1d52u69']")
             message_area.click()
             message_area.send_keys(message, Keys.ENTER)
             print(Fore.LIGHTGREEN_EX+'sended messages ----------->  '+str(number_of_messages))
